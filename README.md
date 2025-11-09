@@ -20,13 +20,13 @@ It behaves like a mini-ChatGPT, supports persistent chat history, uses multiple 
 ### 3. Built-in Tools for Smarter Responses
 The chatbot comes with three powerful tools:
 
-#### 🔎 DuckDuckGo Search Tool  
+#### i. 🔎 DuckDuckGo Search Tool  
 Fetches fresh real-time information from the web.
 
-#### 🧮 Calculator Tool  
+#### ii. 🧮 Calculator Tool  
 Solves math expressions accurately and instantly.
 
-#### 📈 Stock Price Tool (Alpha Vantage)  
+#### iii. 📈 Stock Price Tool (Alpha Vantage)  
 Retrieves real-time stock values using Alpha Vantage API.
 
 ### 4. LangSmith Integration
@@ -51,7 +51,7 @@ Retrieves real-time stock values using Alpha Vantage API.
 | Database | SQLite |
 | Observability | LangSmith |
 | External Tools | DuckDuckGo Search, Alpha Vantage API |
-| LLM Provider | OpenAI / Groq / Google etc. |
+| LLM Provider | Google Gemini |
 
 ---
 
@@ -90,6 +90,7 @@ ALPHAVANTAGE_API_KEY=your_key
 ```bash
 streamlit run app.py
 ```
+---
 
 ## 🔧 How It Works Internally
 ### 🧩 LangGraph Workflow
@@ -110,6 +111,8 @@ streamlit run app.py
 -All agent runs, traces, and tool calls visible in dashboard
 -Helps debug slow steps, errors, and reasoning issues
 
+---
+
 ### 🔮 Future Improvements
 
 -Multi-chat session management
@@ -118,10 +121,14 @@ streamlit run app.py
 -Voice input and TTS responses
 -Vector DB long-term memory
 
+---
+
 ### 🤝 Contributing
 
 -Contributions are welcome.
 -Feel free to open issues or submit pull requests to improve the chatbot.
+
+---
 
 ### 📜 License
 
