@@ -91,21 +91,21 @@ ALPHAVANTAGE_API_KEY=your_key
 streamlit run app.py
 ```
 
-### 🔧 How It Works Internally
-# 🧩 LangGraph Workflow
+## 🔧 How It Works Internally
+### 🧩 LangGraph Workflow
 
 -Each user message goes into the LangGraph state
 -The agent decides whether to use a tool
 -Tool results feed back into the model
 -Final response is generated and shown in UI
 
-# 🗂 SQLite Message Storage
+### 🗂 SQLite Message Storage
 
 -Every interaction is inserted into a conversations table
 -On app launch, chat history is loaded from the database
 -Works seamlessly even after refresh or restart
 
-# 📊 LangSmith Observability
+### 📊 LangSmith Observability
 
 -All agent runs, traces, and tool calls visible in dashboard
 -Helps debug slow steps, errors, and reasoning issues
