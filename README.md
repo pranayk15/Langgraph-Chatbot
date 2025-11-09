@@ -1,151 +1,128 @@
-#🧠 AI Chatbot with LangGraph, Streamlit, SQLite and LangSmith
+# 🧠 AI Chatbot using LangGraph, Streamlit, SQLite and LangSmith
 
-A fully functional ChatGPT-style conversational AI built using LangGraph, LangChain, Streamlit, SQLite, and LangSmith.
-This chatbot can answer general queries, persist conversation history across sessions, and intelligently use integrated tools to perform real-world tasks.
+This project is a fully functional AI chatbot built using **LangGraph**, **LangChain**, **Streamlit**, and **SQLite**, with **LangSmith** for observability.  
+It behaves like a mini-ChatGPT, supports persistent chat history, uses multiple tools to enhance responses, and provides a clean UI for seamless interaction.
 
-🚀 Features
-✅ 1. ChatGPT-like Conversational Agent
+---
 
-Built using LangGraph
+## ✅ Key Features
 
-Retains the full conversational context
+### 1. Conversational AI (LangGraph)
+- Multi-turn conversational agent built using LangGraph’s state machine architecture  
+- Smooth, contextual responses similar to ChatGPT  
+- Handles tool calls intelligently based on user queries  
 
-Responds to all queries naturally and accurately
+### 2. Persistent Chat Memory (SQLite)
+- All chats are stored in a local SQLite database  
+- Refreshing the Streamlit page does NOT erase history  
+- Clean and reliable message logging  
 
-✅ 2. Persistent Chat History (SQLite Database)
+### 3. Built-in Tools for Smarter Responses
+The chatbot comes with three powerful tools:
 
-Every user message + AI response is stored in SQLite
+#### 🔎 DuckDuckGo Search Tool  
+Fetches fresh real-time information from the web.
 
-Even after refreshing the Streamlit page, the history is automatically reloaded
+#### 🧮 Calculator Tool  
+Solves math expressions accurately and instantly.
 
-Clean, reliable long-term memory for conversation sessions
+#### 📈 Stock Price Tool (Alpha Vantage)  
+Retrieves real-time stock values using Alpha Vantage API.
 
-✅ 3. Tool-Augmented AI
+### 4. LangSmith Integration
+- Complete observability of the agent workflow  
+- View traces, prompts, tool calls, timings, and errors  
+- Essential for debugging and improving the agent  
 
-The chatbot is enhanced with three powerful tools:
+### 5. Modern Streamlit UI
+- ChatGPT-like interface  
+- Scrollable conversation panel  
+- Auto-loaded chat history  
+- Responsive and clean presentation  
 
-🔎 DuckDuckGo Search Tool
+---
 
-Searches the internet in real-time and fetches fresh information.
+## 🛠 Technology Stack
 
-🧮 Calculator Tool
+| Layer | Technology |
+|-------|------------|
+| Frontend | Streamlit |
+| AI Orchestration | LangGraph + LangChain |
+| Database | SQLite |
+| Observability | LangSmith |
+| External Tools | DuckDuckGo Search, Alpha Vantage API |
+| LLM Provider | OpenAI / Groq / Google etc. |
 
-Evaluates mathematical expressions and solves calculations instantly.
+---
 
-📈 Stock Price Tool (Alpha Vantage)
 
-Fetches real-time stock prices using the Alpha Vantage API.
+---
 
-✅ 4. LangSmith Integration
+## 🚀 Installation & Setup
 
-Complete observability for LangChain / LangGraph pipelines
-
-Trace runs, debug agent reasoning, and monitor tool usage
-
-Helps improve and scale the chatbot efficiently
-
-✅ 5. Clean Streamlit UI
-
-Simple and modern interface
-
-Conversation UI similar to ChatGPT
-
-Auto-scroll, message bubbles, and history view
-
-🏗 Tech Stack
-| Component     | Technology Used                                      |
-| ------------- | ---------------------------------------------------- |
-| Frontend / UI | **Streamlit**                                        |
-| AI Framework  | **LangGraph + LangChain**                            |
-| Database      | **SQLite**                                           |
-| Observability | **LangSmith**                                        |
-| Search Tool   | **DuckDuckGo Search**                                |
-| Stock API     | **Alpha Vantage**                                    |
-| LLM Backend   | Your preferred provider (OpenAI, Google, Groq, etc.) |
-
-🔧 Installation & Setup
-1. Clone the repository
+### 1. Clone the repository
+```bash
 git clone https://github.com/<your-username>/<repo-name>.git
 cd <repo-name>
+```
 
-2. Create a virtual environment
+### 2. Create a virtual environment
+```bash
 python -m venv .venv
-source .venv/bin/activate   # Mac/Linux
-.venv\Scripts\activate      # Windows
+.venv\Scripts\activate       # Windows
+source .venv/bin/activate    # macOS / Linux
+```
 
-3. Install dependencies
+### 3. Install dependencies
+```bash
 pip install -r requirements.txt
+```
 
-4. Add environment variables
-
+### 4. Add environment variables
 Create a .env file:
+```bash
+OPENAI_API_KEY=your_key
+LANGSMITH_API_KEY=your_key
+ALPHAVANTAGE_API_KEY=your_key
+```
 
-LANGSMITH_API_KEY=your_langsmith_key
-OPENAI_API_KEY=your_model_key
-ALPHAVANTAGE_API_KEY=your_alpha_vantage_key
-
-5. Run the app
+### 5. Run the Streamlit app
+```bash
 streamlit run app.py
+```
 
-🔗 How It Works
-🧩 LangGraph Agent Flow
+### 🔧 How It Works Internally
+# 🧩 LangGraph Workflow
 
-The agent follows this workflow:
+-Each user message goes into the LangGraph state
+-The agent decides whether to use a tool
+-Tool results feed back into the model
+-Final response is generated and shown in UI
 
-Your message enters the LangGraph state machine
+# 🗂 SQLite Message Storage
 
-The chatbot checks if the query needs tools
+-Every interaction is inserted into a conversations table
+-On app launch, chat history is loaded from the database
+-Works seamlessly even after refresh or restart
 
-If yes, it calls the appropriate tool (search, calculator, stocks)
+# 📊 LangSmith Observability
 
-The tool result is merged back into the AI reasoning
+-All agent runs, traces, and tool calls visible in dashboard
+-Helps debug slow steps, errors, and reasoning issues
 
-Final answer is generated
+### 🔮 Future Improvements
 
-Conversation is saved to SQLite
+-Multi-chat session management
+-File upload and file-processing tools
+-User authentication
+-Voice input and TTS responses
+-Vector DB long-term memory
 
-UI updates with the new response
+### 🤝 Contributing
 
-🗂 SQLite Memory
+-Contributions are welcome.
+-Feel free to open issues or submit pull requests to improve the chatbot.
 
-Every message is inserted into a conversations table.
-When Streamlit reloads, the chat history is fetched from the database and rendered instantly.
+### 📜 License
 
-📊 LangSmith Tracing
-
-All agent steps, errors, tool usage and model responses appear in LangSmith dashboard for debugging and performance insights.
-
-🖥️ UI Features
-
-Chat interface with user + AI bubbles
-
-Scrollable conversation window
-
-Auto-reload of saved history
-
-Clean sidebar for settings (optional)
-
-Responsive and smooth experience
-
-🔮 Possible Future Improvements
-
-User authentication
-
-Multi-chat sessions
-
-Custom user-defined tools
-
-File upload and processing
-
-Voice input/output
-
-Vector database for long-term memory
-
-🤝 Contributing
-
-Pull requests are welcome!
-If you'd like to contribute, feel free to open an issue or submit a PR.
-
-📜 License
-
-This project is released under the MIT License.
+This project is licensed under the MIT License.
