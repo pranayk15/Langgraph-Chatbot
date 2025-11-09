@@ -54,7 +54,8 @@ Retrieves real-time stock values using Alpha Vantage API.
 | LLM Provider | Google Gemini |
 
 ---
-<img width="216" height="249" alt="image" src="https://github.com/user-attachments/assets/b8080a14-f1d4-4458-966e-10bd24e76557" />
+## 🖼 Architecture Diagram
+  <img width="216" height="249" alt="image" src="https://github.com/user-attachments/assets/b8080a14-f1d4-4458-966e-10bd24e76557" />
 
 
 ---
